@@ -1,4 +1,5 @@
 {
-  "name": "c01ns",
-  "displayName": "c01ns"
+  "expo": {
+    "sdkVersion": "23.0.0"
+  }
 }
