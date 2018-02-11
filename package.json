@@ -1,6 +1,6 @@
 {
   "name": "c01ns",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "devDependencies": {
     "babel-eslint": "^8.2.1",
@@ -21,6 +21,8 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "events": "^2.0.0",
     "expo": "^23.0.4",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
@@ -28,12 +30,13 @@
     "react-dom": "^16.2.0",
     "react-native": "0.50.3",
     "react-native-elements": "^0.18.5",
-    "react-native-i18n": "^2.0.9",
-    "react-native-keyboard-aware-scroll-view": "^0.4.1",
-    "react-native-modal": "^4.1.1",
+    "react-native-i18n": "^2.0.12",
+    "react-native-in-app-notification": "^2.2.0",
+    "react-native-keyboard-aware-scroll-view": "^0.4.3",
+    "react-native-modal": "^5.0.0",
     "react-native-progress": "^3.4.0",
     "react-native-vector-icons": "^4.4.2",
-    "react-navigation": "^1.0.0-beta.22",
+    "react-navigation": "^1.0.3",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-sparklines": "^1.7.0",
