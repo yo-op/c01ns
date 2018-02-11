@@ -2,7 +2,6 @@
     "root": true,
     "parser": "babel-eslint",
     "plugins": [ "react", "react-native"],
-    "extends": ["plugin:import/errors", "plugin:import/warnings"],
     "env": { "browser": true, "es6": true, "node": true },
     "settings": { "import/resolver": { node: { paths: ["src"] }} },
     "parserOptions": { "sourceType": "module", "ecmaFeatures": { "experimentalObjectRestSpread": true, "jsx": true } },
