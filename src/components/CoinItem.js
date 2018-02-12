@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import colors from './../config/colors';
 
 class CoinItem extends Component{
-  render() {
 
-    const { titleStyle } = styles;
+  static propTypes = {
+    coin: PropTypes.object,
+    title: PropTypes.string
+  };
+
+  render() {
+    const { titleStyle , viewStyle} = styles;
 
     return(
-      <View>
+      <View style={viewStyle}>
         <Text style={titleStyle}>
-          {this.coin.title}
+          {this.props.coin}
         </Text>
       </View>
     );
@@ -18,8 +25,12 @@ class CoinItem extends Component{
 
 const styles = {
   titleStyle: {
-    fontSize: 18,
+    color: colors.textHeader,
+    fontSize: 24,
     paddingLeft: 15
+  },
+  viewStyle: {
+    height: 64
   }
 };
 

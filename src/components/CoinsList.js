@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import CoinItem from './CoinItem';
-import { List, ListItem } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
+import colors from './../config/colors'
 
 class CoinsList extends Component {
+
+  static propTypes = {
+    coins: PropTypes.array,
+  };
 
   constructor(props) {
     super(props);
@@ -21,21 +27,28 @@ class CoinsList extends Component {
 
   }
 
-  renderRow(coin) {
-    return  <CoinItem coin={coin} />;
-  }
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: '100%',
+          backgroundColor: colors.cellSeparator
+        }}
+      />
+    );
+  };
+
+  renderItem = ({coin}) => (
+    <CoinItem coin={coin} />
+  );
 
   render() {
     return (
       <FlatList
         data={this.props.coins}
-        renderItem={({ item }) => (
-          <ListItem
-            title={`${item.title}`}
-            subtitle={item.description}
-            containerStyle={{ borderBottomWidth: 0 }}
-          />
-        )}
+        renderItem={this.renderItem}
+        ItemSeparatorComponent={this.renderSeparator}
       />
     );
   }
