@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
+import { CardSection } from './common/CardSection';
 import colors from './../config/colors';
 
 class CoinItem extends Component{
 
   static propTypes = {
     coin: PropTypes.object,
-    title: PropTypes.string
+    coinName: PropTypes.string
   };
 
   render() {
-    const { titleStyle , viewStyle} = styles;
-
+    const { titleStyle , rowStyle} = styles;
     return(
-      <View style={viewStyle}>
+      <CardSection style={rowStyle}>
         <Text style={titleStyle}>
-          {this.props.coin}
+          {this.props.coin.Name}
         </Text>
-      </View>
+      </CardSection>
     );
   }
 }
@@ -29,7 +29,7 @@ const styles = {
     fontSize: 24,
     paddingLeft: 15
   },
-  viewStyle: {
+  rowStyle: {
     height: 64
   }
 };

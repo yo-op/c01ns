@@ -1,3 +1,3 @@
-import data from '../mocks/demo.json';
+import data from '../mocks/coins.json';
 
 export default () => data;

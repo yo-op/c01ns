@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
 const AddCoinButton = ({ onPress }) => {
+
   const { buttonStyle } = styles;
 
   return (

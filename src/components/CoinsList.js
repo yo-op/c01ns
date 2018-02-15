@@ -3,13 +3,13 @@ import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CoinItem from './CoinItem';
-import { ListItem } from 'react-native-elements';
-import colors from './../config/colors'
+import colors from './../config/colors';
+import axios from 'axios';
 
 class CoinsList extends Component {
 
   static propTypes = {
-    coins: PropTypes.array,
+    coins: PropTypes.array
   };
 
   constructor(props) {
@@ -21,10 +21,6 @@ class CoinsList extends Component {
       error: null,
       refreshing: false
     };
-  }
-
-  componentWillMount() {
-
   }
 
   renderSeparator = () => {
