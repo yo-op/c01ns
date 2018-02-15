@@ -8,6 +8,7 @@ import colors from './src/config/colors';
 import CoinsList from './src/components/CoinsList';
 
 const store = configureStore();
+// console.disableYellowBox = true;
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <View style={{ backgroundColor: colors.dark, flex: 1.0 }}>
         <StatusBar barStyle="light-content" />
         <Header headerText="Coins" />
+        <CoinsList />
       </View>
     </Provider>
   );

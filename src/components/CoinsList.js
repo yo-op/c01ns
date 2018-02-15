@@ -4,7 +4,19 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CoinItem from './CoinItem';
 import colors from './../config/colors';
-import axios from 'axios';
+
+const getMoviesFromApi = async () => {
+  try {
+    const response = await fetch(
+      'https://facebook.github.io/react-native/movies.json'
+    );
+    const responseJson = await response.json();
+    console.log(responseJson);
+    return responseJson.movies;
+  } catch (error) {
+    console.log('Error' + error);
+  }
+};
 
 class CoinsList extends Component {
 
@@ -21,6 +33,10 @@ class CoinsList extends Component {
       error: null,
       refreshing: false
     };
+  }
+
+  componentDidMount() {
+    getMoviesFromApi();
   }
 
   renderSeparator = () => {
