@@ -2,13 +2,11 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { configureStore } from './src/store/ConfigureStore';
-// Views
 import { Header } from './src/components/common';
-import colors from './src/config/colors';
 import CoinsList from './src/components/CoinsList';
+import colors from './src/config/colors';
 
 const store = configureStore();
-// console.disableYellowBox = true;
 
 const App = () => {
   return (
@@ -21,6 +19,5 @@ const App = () => {
     </Provider>
   );
 };
-
 
 export default App;

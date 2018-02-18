@@ -4,24 +4,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CoinItem from './CoinItem';
 import colors from './../config/colors';
-
-const getMoviesFromApi = async () => {
-  try {
-    const response = await fetch(
-      'https://facebook.github.io/react-native/movies.json'
-    );
-    const responseJson = await response.json();
-    console.log(responseJson);
-    return responseJson.movies;
-  } catch (error) {
-    console.log('Error' + error);
-  }
-};
+import Cryptocompare from '../networking/Cryptocompare';
 
 class CoinsList extends Component {
 
   static propTypes = {
-    coins: PropTypes.array
+    coins: PropTypes.object
   };
 
   constructor(props) {
@@ -36,7 +24,7 @@ class CoinsList extends Component {
   }
 
   componentDidMount() {
-    getMoviesFromApi();
+    Cryptocompare.getAllCurrency();
   }
 
   renderSeparator = () => {
@@ -51,7 +39,7 @@ class CoinsList extends Component {
     );
   };
 
-  renderItem = ({coin}) => (
+  renderCoin = ({coin}) => (
     <CoinItem coin={coin} />
   );
 
@@ -59,7 +47,7 @@ class CoinsList extends Component {
     return (
       <FlatList
         data={this.props.coins}
-        renderItem={this.renderItem}
+        renderItem={this.renderCoin}
         ItemSeparatorComponent={this.renderSeparator}
       />
     );

@@ -6,9 +6,8 @@ import reducers from '../reducers';
 export function configureStore() {
   const store = createStore(
     reducers,
-    compose (
+    compose(
       applyMiddleware(reduxThunk),
-      // window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   );
 
