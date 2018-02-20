@@ -1,12 +1,13 @@
 {
   "expo": {
     "name": "c01ns",
+    "platforms": ["ios", "android"],
     "version": "0.0.1",
     "orientation": "portrait",
     "assetBundlePatterns": [
-      "assets/*"
+      "assets/images/**",
+      "assets/fonts/**"
     ],
-    "sdkVersion": "23.0.0",
-    "ios.loadJSInBackgroundExperimental":"true"
+    "sdkVersion": "25.0.0"
   }
 }

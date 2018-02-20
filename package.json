@@ -2,14 +2,6 @@
   "name": "c01ns",
   "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "jest-expo": "23.0.0",
-    "react-native-scripts": "1.8.1",
-    "react-test-renderer": "16.0.0",
-    "redux-devtools-extension": "^2.13.2"
-  },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "start": "react-native-scripts start",
@@ -27,12 +19,12 @@
     "d3": "^4.13.0",
     "d3-shape": "^1.2.0",
     "events": "^2.0.0",
-    "expo": "^23.0.4",
+    "expo": "^25.0.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
-    "react": "16.0.0",
+    "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-native": "0.50.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-elements": "^0.18.5",
     "react-native-i18n": "^2.0.12",
     "react-native-keyboard-aware-scroll-view": "^0.4.3",
@@ -48,5 +40,13 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "jest-expo": "25.0.0",
+    "react-native-scripts": "1.8.1",
+    "react-test-renderer": "16.0.0",
+    "redux-devtools-extension": "^2.13.2"
   }
 }
