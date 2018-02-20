@@ -36,7 +36,7 @@ export default class Cryptocompare {
         console.log(responseJson);
         return responseJson;
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 
@@ -52,6 +52,6 @@ export default class Cryptocompare {
       } catch (error) {
         console.error(error);
       }
-    } 
+    }
 
 }
