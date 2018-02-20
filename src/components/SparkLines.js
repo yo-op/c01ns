@@ -9,8 +9,6 @@ const  sampleData = [5, 10, 5, 20];
 
 class SparkLines extends Component {
 
-
-
   render() {
     return(
       <Sparklines data={sampleData}>

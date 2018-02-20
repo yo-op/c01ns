@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { CardSection } from './common/CardSection';
 import colors from './../config/colors';
+import SparkLines from './SparkLines';
 
 class CoinItem extends Component{
 
@@ -15,6 +16,7 @@ class CoinItem extends Component{
     const { titleStyle , rowStyle} = styles;
     return(
       <CardSection style={rowStyle}>
+        <SparkLines />
         <Text style={titleStyle}>
           {this.props.coin.Name}
         </Text>

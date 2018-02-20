@@ -1,5 +1,12 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
+    "name": "c01ns",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "assetBundlePatterns": [
+      "assets/*"
+    ],
+    "sdkVersion": "23.0.0",
+    "ios.loadJSInBackgroundExperimental":"true"
   }
 }
