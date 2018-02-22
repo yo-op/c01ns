@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
+import _ from 'lodash';
+import React, { Component, Text } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CoinItem from './CoinItem';
 import colors from './../config/colors';
 import Cryptocompare from '../networking/Cryptocompare';
+import data from '../mocks/coins.json';
+
+const coinComponent = (coin) => {
+  return () => {
+    return <CoinItem coin={coin} />;
+  };
+};
 
 class CoinsList extends Component {
 
@@ -21,10 +29,19 @@ class CoinsList extends Component {
       error: null,
       refreshing: false
     };
+
+    this.renderCoin = this.renderCoin.bind(this);
+  }
+
+  componentWillMount() {
+    const newData = _.map(data.Data, (val, key) => {
+      return {...val, key};
+    });
+    this.setState({ coins: newData });
   }
 
   componentDidMount() {
-    Cryptocompare.getAllCurrency();
+    //Cryptocompare.getAllCurrency();
   }
 
   renderSeparator = () => {
@@ -40,14 +57,14 @@ class CoinsList extends Component {
   };
 
   renderCoin = ({coin}) => (
-    <CoinItem coin={coin} />
+    coinComponent(coin)
   );
 
   render() {
     return (
       <FlatList
-        data={this.props.coins}
-        renderItem={this.renderCoin}
+        data={this.state.coins}
+        renderItem={this.renderCoin()}
         ItemSeparatorComponent={this.renderSeparator}
       />
     );

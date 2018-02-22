@@ -3,22 +3,30 @@ import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { CardSection } from './common/CardSection';
 import colors from './../config/colors';
-import SparkLines from './SparkLines';
 
-class CoinItem extends Component{
+class CoinItem extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+      coin: [],
+      error: null,
+    };
+  }
 
   static propTypes = {
-    coin: PropTypes.object,
-    coinName: PropTypes.string
+    coin: PropTypes.object
   };
 
   render() {
     const { titleStyle , rowStyle} = styles;
+    console.log(this.state.coin);
     return(
       <CardSection style={rowStyle}>
-        <SparkLines />
         <Text style={titleStyle}>
-          {this.props.coin.Name}
+          {this.coin['Id']}
         </Text>
       </CardSection>
     );
@@ -32,7 +40,7 @@ const styles = {
     paddingLeft: 15
   },
   rowStyle: {
-    height: 64
+    height: 80
   }
 };
 
