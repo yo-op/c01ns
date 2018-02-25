@@ -3,7 +3,8 @@ node_js:
    - "9"
    - "8"
 before_script:
-  - npm install -g eslint
+  - npm install eslint --save-dev
+  - npm i eslint-plugin-react@latest --save-dev
 script:
   - npm run lint
   - npm run test
