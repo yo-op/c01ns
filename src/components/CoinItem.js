@@ -1,42 +1,52 @@
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+import React, { Component, } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { CardSection } from './common/CardSection';
 import colors from './../config/colors';
 
 class CoinItem extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false,
-      coin: [],
-      error: null,
-    };
-  }
-
   static propTypes = {
-    coin: PropTypes.object
+    coinId: PropTypes.string,
+    coinShortName: PropTypes.string,
+    coinFullName: PropTypes.string,
+    coinTotalCoinSupply: PropTypes.string
   };
 
   render() {
-    const { titleStyle , rowStyle} = styles;
-    console.log(this.state.coin);
-    return(
-      <CardSection style={rowStyle}>
-        <Text style={titleStyle}>
-          {this.coin['Id']}
-        </Text>
-      </CardSection>
+    console.log(this.props);
+
+    const {viewStyle, titleStyle, subTitleStyle } = styles;
+
+    return (
+      <TouchableOpacity>
+        <View style={viewStyle}>
+          <Text style={titleStyle}>
+            {this.props.coinShortName}
+          </Text>
+          <Text style={titleStyle}>
+            {this.props.coinFullName}
+          </Text>
+          <Text style={subTitleStyle}>
+            {this.props.coinTotalCoinSupply}
+          </Text>
+        </View>
+      </TouchableOpacity>
     );
   }
 }
 
 const styles = {
+  viewStyle: {
+    height: 100
+  },
   titleStyle: {
     color: colors.textHeader,
     fontSize: 24,
+    paddingLeft: 15
+  },
+  subTitleStyle:{
+    color: colors.greenblue,
+    fontSize: 18,
     paddingLeft: 15
   },
   rowStyle: {

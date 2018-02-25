@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { Component, Text } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
@@ -6,45 +5,16 @@ import PropTypes from 'prop-types';
 import CoinItem from './CoinItem';
 import colors from './../config/colors';
 import Cryptocompare from '../networking/Cryptocompare';
-import data from '../mocks/coins.json';
-
-const coinComponent = (coin) => {
-  return () => {
-    return <CoinItem coin={coin} />;
-  };
-};
 
 class CoinsList extends Component {
 
   static propTypes = {
-    coins: PropTypes.object
+    coins: PropTypes.array
   };
 
-  constructor(props) {
-    super(props);
+  _keyExtractor = (item, index) => item.Id
 
-    this.state = {
-      loading: false,
-      coins: [],
-      error: null,
-      refreshing: false
-    };
-
-    this.renderCoin = this.renderCoin.bind(this);
-  }
-
-  componentWillMount() {
-    const newData = _.map(data.Data, (val, key) => {
-      return {...val, key};
-    });
-    this.setState({ coins: newData });
-  }
-
-  componentDidMount() {
-    //Cryptocompare.getAllCurrency();
-  }
-
-  renderSeparator = () => {
+  _renderSeparator = () => {
     return (
       <View
         style={{
@@ -56,16 +26,22 @@ class CoinsList extends Component {
     );
   };
 
-  renderCoin = ({coin}) => (
-    coinComponent(coin)
+  _renderItem = ({item}) => (
+    <CoinItem
+      coinId={item.Id}
+      coinShortName={item.Name}
+      coinFullName={item.FullName}
+      coinTotalCoinSupply={item.TotalCoinSupply}
+    />
   );
 
   render() {
     return (
       <FlatList
-        data={this.state.coins}
-        renderItem={this.renderCoin()}
-        ItemSeparatorComponent={this.renderSeparator}
+        data={this.props.coins}
+        keyExtractor={this._keyExtractor}
+        renderItem={this._renderItem}
+        ItemSeparatorComponent={this._renderSeparator}
       />
     );
   }
