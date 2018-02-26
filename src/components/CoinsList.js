@@ -1,16 +1,21 @@
-import React, { Component, Text } from 'react';
+import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getAllCoins } from '../actions';
 import CoinItem from './CoinItem';
 import colors from './../config/colors';
-import Cryptocompare from '../networking/Cryptocompare';
 
 class CoinsList extends Component {
 
   static propTypes = {
-    coins: PropTypes.array
+    coins: PropTypes.array,
+    getAllCoins: PropTypes.func
   };
+
+  componentWillMount(){
+    this.props.getAllCoins();
+  }
 
   _keyExtractor = (item, index) => item.Id
 
@@ -36,6 +41,7 @@ class CoinsList extends Component {
   );
 
   render() {
+    console.log(this.state);
     return (
       <FlatList
         data={this.props.coins}
@@ -49,8 +55,9 @@ class CoinsList extends Component {
 
 const mapStateToProps = state => {
   return {
-    coins: state.allCoins
+    coins : state.allCoins.data
   };
 };
 
-export default connect(mapStateToProps)(CoinsList);
+export default connect(mapStateToProps, { getAllCoins })(CoinsList);
+

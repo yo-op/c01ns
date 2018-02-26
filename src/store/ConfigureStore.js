@@ -1,22 +1,17 @@
 
-import {createStore, applyMiddleware, compose} from 'redux';
+import {createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxThunk from 'redux-thunk';
 import reducers from '../reducers';
 
 export function configureStore() {
-  const store = createStore(
-    reducers,
-    compose(
-      applyMiddleware(reduxThunk),
-    )
-  );
+  const composeEnhancers = composeWithDevTools({
+    // options like actionSanitizer, stateSanitizer
+  });
 
-  if (module.hot) {
-    module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers');
-      store.replaceReducer(nextRootReducer);
-    });
-  }
+  const store = createStore(reducers, composeEnhancers(
+    applyMiddleware(reduxThunk)
+  ));
 
   return store;
 }

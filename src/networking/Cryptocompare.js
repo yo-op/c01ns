@@ -30,7 +30,7 @@ export default class Cryptocompare {
     static getAllCurrency = async () => {
       try {
         const response = await fetch(
-          'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH,DASH&tsyms=BTC,USD,EUR'
+          'https://min-api.cryptocompare.com/data/all/coinlist'
         );
         const responseJson = await response.json();
         console.log(responseJson);

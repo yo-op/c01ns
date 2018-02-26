@@ -1,8 +1,24 @@
-import _ from 'lodash';
-import data from '../mocks/coins.json';
+import {
+  ALL_COINS_DATA, 
+  ALL_COINS_DATA_FETCH_SUCCESS,
+  ALL_COINS_DATA_FETCH_FAIL
+} from '../actions/types';
 
-const newData = _.map(data.Data, (val, key) => {
-  return {...val, key};
-});
+const INITIAL_STATE = {
+  data: null,
+  error: '',
+  loading: false
+};
 
-export default () => newData;
+export default (state = INITIAL_STATE, action) => {
+  switch(action.type) {
+    case ALL_COINS_DATA:
+      return { ...state, loading: true, error: '' };
+    case ALL_COINS_DATA_FETCH_SUCCESS:
+      return { ...state, ...INITIAL_STATE, data: action.payload };
+    case ALL_COINS_DATA_FETCH_FAIL:
+      return { ...state, error: 'Can not fetch data!', loading: false };
+    default:
+      return state;
+  }
+};
