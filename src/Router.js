@@ -5,7 +5,6 @@ const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
       <Scene key="main">
-
       </Scene>
     </Router>
   );
