@@ -45,7 +45,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
-    "standard-http-error": "^2.0.1"
+    "standard-http-error": "^2.0.1",
+    "styled-components": "^3.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
