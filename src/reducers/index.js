@@ -7,6 +7,7 @@ import SelectedCoinReducer from './SelectedCoinReducer';
 
 export default combineReducers({
   allCoins: AllCoinsReducer,
+  defaultCoins: DefaultCoinsReducer,
   userCoins: UserCoinsReducer,
   searchResults: SearchResultsReducer,
   selectedCoin: SelectedCoinReducer
