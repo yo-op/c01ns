@@ -15,6 +15,8 @@ class CoinItem extends Component {
 
   static propTypes = {
     coinId: PropTypes.string,
+    coinShortName: PropTypes.string,
+    coinFullName: PropTypes.string,
     coinTotalCoinSupply: PropTypes.string
   };
 
@@ -26,7 +28,7 @@ class CoinItem extends Component {
     return (
       <TouchableOpacity>
         <TableRow>
-          <CoinName />
+          <CoinName coinShortName={this.props.coinShortName} coinFullName={this.props.coinFullName} />
           <Text style={subTitleStyle}>
             {this.props.coinTotalCoinSupply}
           </Text>

@@ -3,16 +3,14 @@ import { Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 
-const CoinShortName = styled.Text`
-    font-family: 'Papyrus';
+const CoinFullName = styled.Text`
     font-size: 16px;
     line-height: 19px;
     color: white;
     margin-bottom: 2px;
 `;
 
-const CoinFullName = styled.Text`
-    font-family: 'Papyrus';
+const CoinShortName = styled.Text`
     font-size: 14px;
     line-height: 16px;
     color: rgba(255,255,255, 0.5);
@@ -33,8 +31,8 @@ class CoinName extends Component {
     render() {
         return(
             <CoinNameWrapper>
-                <CoinShortName>{this.props.coinShortName}</CoinShortName>
                 <CoinFullName>{this.props.coinFullName}</CoinFullName>
+                <CoinShortName>{this.props.coinShortName}</CoinShortName>
             </CoinNameWrapper>
         );
     }
