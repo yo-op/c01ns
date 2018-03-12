@@ -1,35 +1,36 @@
 import React, { Component, } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
-import colors from './../config/colors';
+import colors from '../../config/colors';
+import styled from 'styled-components/native';
+import CoinName from './CoinName';
+
+const TableRow = styled.View`
+  height: 64px;
+  border-bottom-width: 1px;
+  border-color: #4C4C4C;
+`;
 
 class CoinItem extends Component {
 
   static propTypes = {
     coinId: PropTypes.string,
-    coinShortName: PropTypes.string,
-    coinFullName: PropTypes.string,
     coinTotalCoinSupply: PropTypes.string
   };
 
   render() {
     console.log(this.props);
 
-    const {viewStyle, titleStyle, subTitleStyle } = styles;
+    const { titleStyle, subTitleStyle } = styles;
 
     return (
       <TouchableOpacity>
-        <View style={viewStyle}>
-          <Text style={titleStyle}>
-            {this.props.coinShortName}
-          </Text>
-          <Text style={titleStyle}>
-            {this.props.coinFullName}
-          </Text>
+        <TableRow>
+          <CoinName />
           <Text style={subTitleStyle}>
             {this.props.coinTotalCoinSupply}
           </Text>
-        </View>
+        </TableRow>
       </TouchableOpacity>
     );
   }
