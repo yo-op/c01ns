@@ -11,9 +11,17 @@ export const getDefaultCoins = () => {
     dispatch({ type: DEFAULT_COINS_DATA });
 
     try {
+      const response = await fetch(
+        'https://min-api.cryptocompare.com/data/coin/watchlist?fsyms=BTC,ETH,DASH&tsym=USD'
+      );
+      const responseJson = await response.json();
 
-    } catch {
-
+      const data = _.map(responseJson.Data, (val, key) => {
+        return {...val, key};
+      });
+      return defaultCoinsDataFetchSuccess(dispatch, data);
+    } catch(error) {
+      defaultCoinsDataFetchFail(dispatch);
     }
 
   };

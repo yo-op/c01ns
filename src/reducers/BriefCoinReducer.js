@@ -1,7 +1,7 @@
 import {
-  ALL_COINS_DATA,
-  ALL_COINS_DATA_FETCH_SUCCESS,
-  ALL_COINS_DATA_FETCH_FAIL
+  BRIEF_COIN_DATA ,
+  BRIEF_COIN_DATA_FETCH_SUCCESS,
+  BRIEF_COIN_DATA_FETCH_FAIL
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -12,11 +12,11 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case ALL_COINS_DATA:
+    case BRIEF_COIN_DATA:
       return { ...state, loading: true, error: '' };
-    case ALL_COINS_DATA_FETCH_SUCCESS:
-      return { ...state, ...INITIAL_STATE, data: action.payload };
-    case ALL_COINS_DATA_FETCH_FAIL:
+    case BRIEF_COIN_DATA_FETCH_SUCCESS:
+      return { ...state, data: action.payload };
+    case BRIEF_COIN_DATA_FETCH_FAIL:
       return { ...state, error: 'Can not fetch data!', loading: false };
     default:
       return state;
