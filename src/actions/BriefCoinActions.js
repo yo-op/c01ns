@@ -14,11 +14,13 @@ export const getBriefCoinData = (coinName, currency) => {
       const response = await fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coinName}&tsyms=${currency}&extraParams=c01ns`);
       const responseJson = await response.json();
 
-      const data = _.map(responseJson, (val, key) => {
-        return {...val, key};
-      });
-
-      console.log(responseJson);
+      console.log(responseJson.DISPLAY.BTC);
+      const obj  = {
+        coinName: coinName,
+        currency: currency
+      };
+      console.log(obj);
+      const data = responseJson;
       return briefCoinDataFetchSuccess(dispatch, data);
     } catch(error) {
       briefCoinDataFetchFail(dispatch);
