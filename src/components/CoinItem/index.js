@@ -1,14 +1,20 @@
 import React, { Component, } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import colors from '../../config/colors';
 import styled from 'styled-components/native';
 import CoinName from './CoinName';
+import CoinPrice from './CoinPrice';
 
 const TableRow = styled.View`
   height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 16px;
+  margin-right: 16px;
   border-bottom-width: 1px;
-  border-color: #4C4C4C;
+  border-color: #4c4c4c;
 `;
 
 class CoinItem extends Component {
@@ -23,38 +29,15 @@ class CoinItem extends Component {
   render() {
     console.log(this.props);
 
-    const { titleStyle, subTitleStyle } = styles;
-
     return (
       <TouchableOpacity>
         <TableRow>
           <CoinName coinShortName={this.props.coinShortName} coinFullName={this.props.coinFullName} />
-          <Text style={subTitleStyle}>
-            {this.props.coinTotalCoinSupply}
-          </Text>
+          <CoinPrice />
         </TableRow>
       </TouchableOpacity>
     );
   }
 }
-
-const styles = {
-  viewStyle: {
-    height: 100
-  },
-  titleStyle: {
-    color: colors.textHeader,
-    fontSize: 24,
-    paddingLeft: 15
-  },
-  subTitleStyle:{
-    color: colors.greenblue,
-    fontSize: 18,
-    paddingLeft: 15
-  },
-  rowStyle: {
-    height: 80
-  }
-};
 
 export default CoinItem;
