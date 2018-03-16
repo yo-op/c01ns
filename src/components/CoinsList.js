@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getBriefCoinData } from '../actions';
 import CoinItem from './CoinItem';
-import colors from './../config/colors';
 
 class CoinsList extends Component {
 
@@ -18,18 +17,6 @@ class CoinsList extends Component {
   }
 
   _keyExtractor = (item, index) => item.Id
-
-  _renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 1,
-          width: '100%',
-          backgroundColor: colors.cellSeparator
-        }}
-      />
-    );
-  };
 
   _renderItem = ({item}) => (
     <CoinItem
