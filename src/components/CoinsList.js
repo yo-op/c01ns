@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getAllCoins } from '../actions';
+import { getBriefCoinData } from '../actions';
 import CoinItem from './CoinItem';
 
 class CoinsList extends Component {
 
   static propTypes = {
-    coins: PropTypes.array,
-    getAllCoins: PropTypes.func
+    coins: PropTypes.object,
+    getBriefCoinData: PropTypes.func
   };
 
   componentWillMount(){
-    this.props.getAllCoins();
+    this.props.getBriefCoinData('BTC', 'USD');
   }
 
   _keyExtractor = (item, index) => item.Id
@@ -42,9 +42,9 @@ class CoinsList extends Component {
 
 const mapStateToProps = state => {
   return {
-    coins : state.allCoins.data
+    coins : state.briefCoinData.data
   };
 };
 
-export default connect(mapStateToProps, { getAllCoins })(CoinsList);
+export default connect(mapStateToProps, { getBriefCoinData })(CoinsList);
 

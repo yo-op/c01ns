@@ -19,8 +19,6 @@ export const getAllCoins = () => {
       const data = _.map(responseJson.Data, (val, key) => {
         return {...val, key};
       });
-
-      console.log(data);
       return coinsDataFetchSuccess(dispatch, data);
     } catch (error) {
       coinsDataFetchFail(dispatch);
