@@ -1,5 +1,5 @@
-export * from './Header';
+export * from './NavBar';
 export * from './AddCoinButton';
-export * from './Button';
+export * from './TextButton';
 export * from './ButtonWithImage';
 export * from './CardSection';
