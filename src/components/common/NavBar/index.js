@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 import { Constants } from 'expo';
 import styled from 'styled-components/native';
 import TextButton from '../TextButton';
+import IconButton from '../IconButton';
 
 const NavBarWrapper = styled.View`
   background-color: #15191E;
@@ -21,6 +22,9 @@ class NavBar extends Component {
   render(){
     return(
       <NavBarWrapper>
+        <IconButton>
+          <Image source={require('../../../assets/settings-icon.png')} />
+        </IconButton>
         <Image source={require('./logo.png')} />
         <TextButton>Edit</TextButton>
       </NavBarWrapper>
