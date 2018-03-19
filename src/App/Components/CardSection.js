@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import colors from '../../Configs/Colors';
+import colors from '../Configs/Colors';
 
 const CardSection = (props) => {
   return (

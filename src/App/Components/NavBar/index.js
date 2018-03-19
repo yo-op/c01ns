@@ -23,9 +23,9 @@ class NavBar extends Component {
     return(
       <NavBarWrapper>
         <IconButton>
-          <Image source={require('../../../Assets/settings-icon.png')} />
+          <Image source={require('../../Assets/settings-icon.png')} />
         </IconButton>
-        <Image source={require('../../../Assets/logo.png')} />
+        <Image source={require('../../Assets/logo.png')} />
         <TextButton>Edit</TextButton>
       </NavBarWrapper>
     );

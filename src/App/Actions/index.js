@@ -1,2 +1,1 @@
-export * from './AllCoinsActions';
-export * from './BriefCoinActions';
+export * from '../../App/../Modules/CoinsList/Actions';

@@ -3,7 +3,7 @@ import {
   DEFAULT_COINS_DATA,
   DEFAULT_COINS_DATA_FETCH_SUCCESS,
   DEFAULT_COINS_DATA_FETCH_FAIL
-} from './types';
+} from '../../../App/Actions/Types';
 
 export const getDefaultCoins = () => {
   return async (dispatch) => {
