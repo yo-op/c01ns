@@ -36,7 +36,7 @@
       "no-unused-vars": ["warn", { "varsIgnorePattern": "[iI]gnored[0-9]*" }],
       "no-path-concat": "error",
       "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
-      "camelcase": "off",
+      "camelcase": 1,
       "new-cap": "error",
       "no-lonely-if": "error",
       "no-tabs": "error",

@@ -2,7 +2,7 @@ import {
   BRIEF_COIN_DATA ,
   BRIEF_COIN_DATA_FETCH_SUCCESS,
   BRIEF_COIN_DATA_FETCH_FAIL
-} from '../actions/types';
+} from '../Actions/types';
 
 const INITIAL_STATE = {
   data: null,
