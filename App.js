@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { configureStore } from './src/App/Store/ConfigureStore';
-import { NavBar } from './src/App/Components';
+import { NavBar, SegmentedControl } from './src/App/Components';
 import CoinsList from './src/Modules/CoinsList/Components/CoinsList';
 import colors from './src/App/Configs/Colors';
 
@@ -14,6 +14,7 @@ const App = () => {
       <View style={{ backgroundColor: colors.dark, flex: 1.0 }}>
         <StatusBar barStyle="light-content" />
         <NavBar />
+        <SegmentedControl />
         <CoinsList />
       </View>
     </Provider>
