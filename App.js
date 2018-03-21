@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { configureStore } from './src/App/Store/ConfigureStore';
-import { NavBar } from './src/App/Components';
+import { NavBar, AddCoinButton } from './src/App/Components';
 import CoinsList from './src/Modules/CoinsList/Components/CoinsList';
 import colors from './src/App/Configs/Colors';
 
@@ -15,6 +15,7 @@ const App = () => {
         <StatusBar barStyle="light-content" />
         <NavBar />
         <CoinsList />
+        <AddCoinButton />
       </View>
     </Provider>
   );
