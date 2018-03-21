@@ -3,7 +3,7 @@ import {
   BRIEF_COIN_DATA ,
   BRIEF_COIN_DATA_FETCH_SUCCESS,
   BRIEF_COIN_DATA_FETCH_FAIL
-} from '../../../App/Actions/Types';
+} from '../../../App/Actions/types';
 
 export const getBriefCoinData = (coinName, currency) => {
   return async (dispatch) => {

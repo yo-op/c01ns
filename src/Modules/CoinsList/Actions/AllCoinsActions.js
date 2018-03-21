@@ -3,7 +3,7 @@ import {
   ALL_COINS_DATA,
   ALL_COINS_DATA_FETCH_SUCCESS,
   ALL_COINS_DATA_FETCH_FAIL
-} from '../../../App/Actions/Types';
+} from '../../../App/Actions/types';
 
 export const getAllCoins = () => {
   return async (dispatch) => {
