@@ -1,32 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
+import { Image } from 'react-native';
+import styled from 'styled-components/native';
 
-const AddCoinButton = ({ onPress }) => {
+const ButtonWrapper = styled.TouchableOpacity`
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  bottom: 16px;
+  left: 50%;
+  margin-left: -32px;
+  border-radius: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(33,206,153,0.25);
+`;
 
-  const { buttonStyle } = styles;
-
+const AddCoinButton = ({ onPress, children }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
-    </TouchableOpacity>
+    <ButtonWrapper onPress={onPress}>
+      <Image source={require('../Assets/add-icon.png')} />
+    </ButtonWrapper>
   );
-};
-
-const styles = {
-  buttonStyle: {
-    flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5
-  }
-};
-
-AddCoinButton.prototypes = {
-  onPress: PropTypes.func
 };
 
 export { AddCoinButton };
