@@ -12,7 +12,7 @@
     "restart": "rm -r node_modules && yarn install",
     "lint": "eslint src test",
     "coverage": "rimraf coverage && jest --coverage",
-    "precommit": "jest",
+    "precommit": "eslint src test && jest",
     "prepush": "jest"
   },
   "jest": {
