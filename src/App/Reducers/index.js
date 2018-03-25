@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
-import AllCoinsReducer from '../../Modules/CoinsList/Reducers/AllCoinsReducer';
-import BriefCoinReducer from '../../Modules/CoinsList/Reducers/BriefCoinReducer';
-import DefaultCoinsReducer from '../../Modules/CoinsList/Reducers/DefaultCoinsReducer';
+import allCoins from '../../Modules/CoinsList/Reducers/AllCoinsReducer';
+import briefCoinData from '../../Modules/CoinsList/Reducers/BriefCoinReducer';
+import defaultCoins from '../../Modules/CoinsList/Reducers/DefaultCoinsReducer';
 // import UserCoinsReducer from './UserCoinsReducer';
 // import SearchResultsReducer from './SearchResultsReducer';
 // import SelectedCoinReducer from './SelectedCoinReducer';
 
 export default combineReducers({
-  allCoins: AllCoinsReducer,
-  briefCoinData: BriefCoinReducer,
-  defaultCoins: DefaultCoinsReducer,
+  allCoins,
+  briefCoinData,
+  defaultCoins
   // userCoins: UserCoinsReducer,
   // searchResults: SearchResultsReducer,
   // selectedCoin: SelectedCoinReducer

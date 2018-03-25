@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import { configureStore } from './src/App/Store/ConfigureStore';
 import { NavBar, AddCoinButton, SegmentedControl } from './src/App/Components';
 import CoinsList from './src/Modules/CoinsList/Components/CoinsList';
