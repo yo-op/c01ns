@@ -5,4 +5,4 @@ const persistConfig = {
   storage,
 };
 
-export { persistConfig as default };
+export default persistConfig;
