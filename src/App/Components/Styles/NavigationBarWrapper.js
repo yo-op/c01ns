@@ -1,7 +1,7 @@
 import { Constants } from 'expo';
 import styled from 'styled-components/native';
 
-const NavBarStyled = styled.View`
+const NavigationBarWrapper = styled.View`
   background-color: #15191E;
   margin-top: ${Constants.statusBarHeight};
   height: 44px;
@@ -14,4 +14,4 @@ const NavBarStyled = styled.View`
   padding-right: 16px;
 `;
 
-export default NavBarStyled;
+export default NavigationBarWrapper;

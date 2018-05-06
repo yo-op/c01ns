@@ -19,7 +19,7 @@ const TextButton = ({ onPress, children }) => (
 
 TextButton.propTypes = {
   onPress: PropTypes.func,
-  children: PropTypes.object,
+  children: PropTypes.string,
 };
 
 export default TextButton;

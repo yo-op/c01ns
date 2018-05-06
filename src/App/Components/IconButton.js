@@ -10,7 +10,7 @@ const IconButton = ({ onPress, children }) => (
 
 IconButton.propTypes = {
   onPress: PropTypes.func,
-  children: PropTypes.object,
+  children: PropTypes.object
 };
 
 export default IconButton;

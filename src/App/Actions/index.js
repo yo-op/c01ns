@@ -1,18 +1,34 @@
 import {
   REQUEST,
   SUCCESS,
-  FAILURE,
-  RESET_ERROR_MESSAGE,
+  FAILURE
 } from './Types';
 
-export * from '../../App/../Modules/CoinsList/Actions';
+function createRequestTypes(base) {
+  return [REQUEST, SUCCESS, FAILURE].reduce((acc, type) => {
+    acc[type] = `${base}_${type}`;
+    return acc;
+  }, {});
+}
 
-export const createRequestTypes = base => [REQUEST, SUCCESS, FAILURE].reduce((action, type) => {
-  let actionType = action[type];
-  actionType = `${base}_${type}`;
-  return actionType;
-});
+export const COIN = createRequestTypes('COIN');
 
-export const action = (type, payload = {}) => ({ type, ...payload });
+export const UPDATE_ROUTER_STATE = 'UPDATE_ROUTER_STATE';
+export const NAVIGATE = 'NAVIGATE';
+export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';
+
+function action(type, payload = {}) {
+  return { type, ...payload };
+}
+
+export const coin = {
+  request: data => action(COIN[REQUEST], { data }),
+  success: (data, response) => action(COIN[SUCCESS], { data, response }),
+  failure: (data, error) => action(COIN[FAILURE], { data, error }),
+};
+
+export const updateRouterState = state => action(UPDATE_ROUTER_STATE, { state });
+export const navigate = pathname => action(NAVIGATE, { pathname });
 
 export const resetErrorMessage = () => action(RESET_ERROR_MESSAGE);
+

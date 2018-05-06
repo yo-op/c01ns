@@ -6,9 +6,9 @@ import { getBriefCoinData } from '../Actions';
 import CoinItem from './CoinItem';
 
 class CoinsList extends Component {
-  componentWillMount() {
-    this.props.getBriefCoinData('BTC', 'USD');
-  }
+  // componentWillMount() {
+  //   this.props.getBriefCoinData('BTC', 'USD');
+  // }
 
   keyExtractor = (item, index) => item.Id
 
