@@ -1,6 +1,7 @@
-export * from './NavBar';
 export * from './AddCoinButton';
-export * from './TextButton';
-export * from './IconButton';
-export * from './CardSection';
-export * from './SegmentedControl';
+export { NavBar } from './NavBar';
+export { TextButton } from './TextButton';
+export { IconButton } from './IconButton';
+export { CardSection } from './CardSection';
+export { SegmentedControl } from './SegmentedControl';
+

@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React, { Component } from 'react';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
@@ -18,26 +18,26 @@ const TableRow = styled.View`
 `;
 
 class CoinItem extends Component {
-
-  static propTypes = {
-    coinId: PropTypes.string,
-    coinShortName: PropTypes.string,
-    coinFullName: PropTypes.string,
-    coinTotalCoinSupply: PropTypes.string
-  };
-
   render() {
-    console.log(this.props);
-
     return (
       <TouchableOpacity>
         <TableRow>
-          <CoinName coinShortName={this.props.coinShortName} coinFullName={this.props.coinFullName} />
+          <CoinName
+            coinShortName={this.coinShortName}
+            coinFullName={this.coinFullName}
+          />
           <CoinPrice />
         </TableRow>
       </TouchableOpacity>
     );
   }
 }
+
+CoinItem.prototype = {
+  coinId: PropTypes.string,
+  coinShortName: PropTypes.string,
+  coinFullName: PropTypes.string,
+  coinTotalCoinSupply: PropTypes.string,
+};
 
 export default CoinItem;

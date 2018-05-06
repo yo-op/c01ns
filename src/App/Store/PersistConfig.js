@@ -1,6 +1,8 @@
 import storage from 'redux-persist/lib/storage';
 
-export const persistConfig = {
+const persistConfig = {
   key: 'root',
-  storage
+  storage,
 };
+
+export { persistConfig as default };

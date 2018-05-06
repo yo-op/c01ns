@@ -1,21 +1,22 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware, { END } from 'redux-saga';
 import { persistReducer } from 'redux-persist';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { persistConfig } from './PersistConfig';
 import reducers from '../Reducers';
 
-export const configureStore = () => {
-
+const configureStore = () => {
   const persistedReducer = persistReducer(persistConfig, reducers);
-  const middleWares = [thunk];
+  const sagaMiddleware = createSagaMiddleware();
 
-  const composeEnhancers = composeWithDevTools({
-    // options like actionSanitizer, stateSanitizer
-  });
+  const store = createStore(
+    persistedReducer,
+    applyMiddleware(sagaMiddleware),
+  );
 
-  return createStore(persistedReducer, composeEnhancers(
-    applyMiddleware(...middleWares)
-  ));
+  store.runSaga = sagaMiddleware.run;
+  store.close = () => store.dispatch(END);
+  return store;
 };
+
+export { configureStore as default };

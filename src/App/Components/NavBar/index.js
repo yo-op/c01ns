@@ -1,35 +1,23 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import { Constants } from 'expo';
-import styled from 'styled-components/native';
+import NavBarStyled from './NavBarStyled';
 import TextButton from '../TextButton';
 import IconButton from '../IconButton';
 
-const NavBarWrapper = styled.View`
-  background-color: #15191E;
-  margin-top: ${Constants.statusBarHeight};
-  height: 44px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  padding-left: 16px;
-  padding-right: 16px;
-`;
+const settingsIcon = require('../../Assets/settings-icon.png');
+const logoIcon = require('../../Assets/logo.png');
 
 class NavBar extends Component {
-  render(){
-    return(
-      <NavBarWrapper>
+  render() {
+    return (
+      <NavBarStyled {...this} >
         <IconButton>
-          <Image source={require('../../Assets/settings-icon.png')} />
+          <Image source={ settingsIcon } />
         </IconButton>
-        <Image source={require('../../Assets/logo.png')} />
+        <Image source={ logoIcon }/>
         <TextButton>Edit</TextButton>
-      </NavBarWrapper>
+      </NavBarStyled>
     );
   }
 }
-
-export { NavBar };
+export default NavBar;

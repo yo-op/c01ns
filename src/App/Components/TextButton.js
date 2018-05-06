@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -8,14 +9,17 @@ const TextWrapper = styled.Text`
   line-height: 19px;
 `;
 
-const TextButton = ({ onPress, children }) => {
-  return (
+const TextButton = ({ onPress, children }) => (
     <TouchableOpacity onPress={onPress}>
       <TextWrapper>
         {children}
       </TextWrapper>
     </TouchableOpacity>
-  );
+);
+
+TextButton.propTypes = {
+  onPress: PropTypes.func,
+  children: PropTypes.object,
 };
 
 export default TextButton;

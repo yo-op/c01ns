@@ -1,17 +1,17 @@
 import {
-  BRIEF_COIN_DATA ,
+  BRIEF_COIN_DATA,
   BRIEF_COIN_DATA_FETCH_SUCCESS,
-  BRIEF_COIN_DATA_FETCH_FAIL
+  BRIEF_COIN_DATA_FETCH_FAIL,
 } from '../../../App/Actions';
 
 const INITIAL_STATE = {
   data: null,
   error: '',
-  loading: false
+  loading: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case BRIEF_COIN_DATA:
       return { ...state, loading: true, error: '' };
     case BRIEF_COIN_DATA_FETCH_SUCCESS:
