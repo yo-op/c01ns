@@ -9,9 +9,17 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "jest",
-    "restart": "rm -r node_modules && yarn install",
+    "restart": "rm -r node_modules && rm package-lock.json && yarn install",
     "lint": "eslint src test",
-    "coverage": "rimraf coverage && jest --coverage"
+    "coverage": "rimraf coverage && jest --coverage",
+    "precommit": "eslint src test",
+    "prepush": "jest"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
     "preset": "jest-expo"
@@ -19,17 +27,20 @@
   "dependencies": {
     "art": "^0.10.1",
     "axios": "^0.18.0",
-    "d3": "^4.13.0",
+    "d3": "^5.0.0",
     "d3-shape": "^1.2.0",
     "events": "^2.0.0",
-    "expo": "^25.0.0",
-    "lodash": "^4.17.4",
+    "expo": "^26.0.0",
+    "humps": "^2.0.1",
+    "lodash": "^4.17.10",
+    "lodash.map": "^4.6.0",
     "moment": "^2.20.1",
     "normalizr": "^3.2.4",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
+    "react": "^16.3.0-alpha.1",
     "react-dom": "^16.2.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-i18next": "^7.6.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
     "react-native-communications": "^2.2.1",
     "react-native-elements": "^0.18.5",
     "react-native-i18n": "^2.0.12",
@@ -38,24 +49,31 @@
     "react-native-progress": "^3.4.0",
     "react-native-segmented-control-tab": "^3.2.2",
     "react-native-vector-icons": "^4.4.2",
-    "react-navigation": "^1.0.3",
+    "react-navigation": "1.5.8",
     "react-redux": "^5.0.6",
     "react-sparklines": "^1.7.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
+    "redux-persist": "^5.9.1",
     "redux-saga": "^0.16.0",
-    "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "styled-components": "^3.2.1",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-react-native": "^3.2.1",
+    "husky": "^0.14.3",
     "jest": "^22.4.0",
-    "jest-expo": "25.0.0",
+    "jest-expo": "26.0.0",
+    "lint-staged": "^7.0.5",
+    "prettier": "1.12.1",
     "react-native-scripts": "1.8.1",
-    "react-test-renderer": "16.0.0",
+    "react-test-renderer": "^16.3.0-alpha.1",
     "redux-devtools-extension": "^2.13.2",
     "rimraf": "^2.6.2"
   }

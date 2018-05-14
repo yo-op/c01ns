@@ -1,57 +1,29 @@
-export default class Cryptocompare {
+import { normalize } from 'normalizr';
+import { coinSchema } from './CryptocompareSchema';
 
-    static getMoviesFromApi = async () => {
-      try {
-        const response = await fetch(
-          'https://facebook.github.io/react-native/movies.json'
-        );
-        const responseJson = await response.json();
-        console.log(responseJson.movies);
-        return responseJson.movies;
-      } catch (error) {
-        console.error(error);
-      }
-    };
+const baseUrl = 'https://min-api.cryptocompare.com/data/';
+// const appName = 'c01ns';
 
-    static getInitialCoins = async () => {
-      try {
-        const response = await fetch(
-          'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH,DASH&tsyms=BTC,USD,EUR'
-        );
-        const responseJson = await response.json();
-        console.log(responseJson);
-        return responseJson;
-      } catch (error) {
-        console.error(error);
-      }
-    }
+// Fetches an API response and normalizes the result JSON according to schema.
+// This makes every API response have the same shape, regardless of how nested it was.
+const callApi = async (endpoint, schema) => {
+  const fullUrl = (endpoint.indexOf(baseUrl) === -1) ? baseUrl + endpoint : endpoint;
+  try {
+    const response = await fetch(fullUrl);
+    const responseJson = await response.json();
+    const data = Object.assign(
+      {},
+      normalize(responseJson, schema),
+    );
+    // console.log(data);
+    return data;
+  } catch (error) {
+    return error;
+    // console.log(error);
+  }
+};
 
+// api services
+const fetchCoin = coinName => callApi(`coin/${coinName}`, coinSchema);
 
-    static getAllCurrency = async () => {
-      try {
-        const response = await fetch(
-          'https://min-api.cryptocompare.com/data/all/coinlist'
-        );
-        const responseJson = await response.json();
-        console.log(responseJson);
-        return responseJson;
-      } catch (error) {
-        // console.error(error);
-      }
-    };
-
-
-    static getCoinInfo = async () => {
-      try {
-        const response = await fetch(
-          'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH,DASH&tsyms=BTC,USD,EUR'
-        );
-        const responseJson = await response.json();
-        console.log(responseJson);
-        return responseJson;
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-}
+export default fetchCoin;

@@ -1,11 +1,32 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 
-class SegmentedControl extends Component {
+const styles = StyleSheet.create({
+  tabsContainerStyle: {
+    padding: 16
+  },
+  tabStyle: {
+    height: 32,
+    backgroundColor: '#18463C',
+    borderWidth: 0,
+    borderColor: 'transparent'
+  },
+  tabTextStyle: {
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#21CE99'
+  },
+  activeTabStyle: {
+    backgroundColor: '#21CE99',
+  },
+  activeTabTextStyle: {
+    color: 'white'
+  }
+});
 
-  constructor(){
+class SegmentedControl extends Component {
+  constructor() {
     super();
     this.state = {
       selectedIndex: 0,
@@ -38,28 +59,4 @@ class SegmentedControl extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  tabsContainerStyle: {
-    padding: 16
-  },
-  tabStyle: {
-    height: 32,
-    backgroundColor: '#18463C',
-    borderWidth: 0,
-    borderColor: 'transparent'
-  },
-  tabTextStyle: {
-    fontSize: 16,
-    lineHeight: 19,
-    color: '#21CE99'
-  },
-  activeTabStyle: {
-    backgroundColor: '#21CE99',
-  },
-  activeTabTextStyle: {
-    color: 'white'
-  }
-
-});
-
-export { SegmentedControl };
+export default SegmentedControl;

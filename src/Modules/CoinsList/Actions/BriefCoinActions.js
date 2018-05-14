@@ -1,40 +1,14 @@
-import _ from 'lodash';
+import { createRequestTypes, action } from '../../../App/Actions';
 import {
-  BRIEF_COIN_DATA ,
-  BRIEF_COIN_DATA_FETCH_SUCCESS,
-  BRIEF_COIN_DATA_FETCH_FAIL
+  REQUEST,
+  SUCCESS,
+  FAILURE,
 } from '../../../App/Actions/Types';
 
-export const getBriefCoinData = (coinName, currency) => {
-  return async (dispatch) => {
+export const COIN = createRequestTypes('COIN');
 
-    dispatch({ type: BRIEF_COIN_DATA });
-
-    try {
-      const response = await fetch(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coinName}&tsyms=${currency}&extraParams=c01ns`);
-      const responseJson = await response.json();
-
-      console.log(responseJson.DISPLAY.BTC);
-      const obj  = {
-        coinName: coinName,
-        currency: currency
-      };
-      console.log(obj);
-      const data = responseJson;
-      return briefCoinDataFetchSuccess(dispatch, data);
-    } catch(error) {
-      briefCoinDataFetchFail(dispatch);
-    }
-  };
-};
-
-const briefCoinDataFetchFail = (dispatch) => {
-  dispatch({ type: BRIEF_COIN_DATA_FETCH_FAIL });
-};
-
-const briefCoinDataFetchSuccess = (dispatch, data) => {
-  dispatch({
-    type: BRIEF_COIN_DATA_FETCH_SUCCESS,
-    payload: data
-  });
+export const coin = {
+  request: finalCoin => action(COIN[REQUEST], { finalCoin }),
+  success: (finalCoin, response) => action(COIN[SUCCESS], { finalCoin, response }),
+  failure: (finalCoin, error) => action(COIN[FAILURE], { finalCoin, error }),
 };

@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components/native';
 
 const Price = styled.Text`
@@ -22,10 +22,9 @@ const CoinPriceWrapper = styled.View`
 `;
 
 class CoinPrice extends Component {
-
   render() {
-    return(
-      <CoinPriceWrapper>
+    return (
+      <CoinPriceWrapper {...this}>
         <Price>$5356.01</Price>
         <PriceChange>+10.64%</PriceChange>
       </CoinPriceWrapper>

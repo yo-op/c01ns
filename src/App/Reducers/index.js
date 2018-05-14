@@ -1,16 +1,21 @@
 import { combineReducers } from 'redux';
-import AllCoinsReducer from '../../Modules/CoinsList/Reducers/AllCoinsReducer';
-import BriefCoinReducer from '../../Modules/CoinsList/Reducers/BriefCoinReducer';
-import DefaultCoinsReducer from '../../Modules/CoinsList/Reducers/DefaultCoinsReducer';
-// import UserCoinsReducer from './UserCoinsReducer';
-// import SearchResultsReducer from './SearchResultsReducer';
-// import SelectedCoinReducer from './SelectedCoinReducer';
+import UserCoinsReducer from './UserCoinsReducer';
 
-export default combineReducers({
-  allCoins: AllCoinsReducer,
-  briefCoinData: BriefCoinReducer,
-  defaultCoins: DefaultCoinsReducer,
-  // userCoins: UserCoinsReducer,
-  // searchResults: SearchResultsReducer,
-  // selectedCoin: SelectedCoinReducer
+// Updates error message to notify about the failed fetches.
+// function errorMessage(state = null, action) {
+//   const { type, error } = action;
+
+//   if (type === ActionTypes.RESET_ERROR_MESSAGE) {
+//     return null;
+//   } else if (error) {
+//     return action.error;
+//   }
+
+//   return state;
+// }
+
+const rootReducer = combineReducers({
+  UserCoinsReducer
 });
+
+export default rootReducer;
